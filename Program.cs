@@ -16,9 +16,9 @@ builder.Services.AddDbContext<MedicoDbContext>(options => options.UseSqlServer(b
 builder.Services.AddScoped<IPatientRepository, PatientRepository>();
 builder.Services.AddScoped<IPatientService, PatientService>();
 builder.Services.AddScoped<PatientMapper>();
-builder.Services.AddCors(CorsPolicy =>
+builder.Services.AddCors(corsPolicy =>
 {
-    CorsPolicy.AddPolicy("AllowAngular",
+    corsPolicy.AddPolicy("AllowAngular",
         policy => policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:4200"));
 });
 var app = builder.Build();
