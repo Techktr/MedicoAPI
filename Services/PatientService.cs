@@ -45,7 +45,7 @@ public class PatientService: IPatientService
 
     public PatientResponseDto UpdatePatient(PatientUpdateDto patientUpdateDto)
     {
-        Patient? patient = _patientRepository.UpdatePatient(_patientMapper.UpdateDtoToEntity(patientUpdateDto));
+        Patient? patient = _patientRepository.UpdatePatient(patientUpdateDto);
         if (patient == null)
         {
             throw new Exception("Patient not found");

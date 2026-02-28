@@ -50,15 +50,4 @@ public class PatientMapper
         };
     }
 
-    public Patient UpdateDtoToEntity(PatientUpdateDto dto)
-    {
-        return new Patient()
-        {
-            Id = dto.Id,
-            Address = dto.Address,
-            Age = dto.Age,
-            SportName = dto.SportName
-        };
-    }
-
 }

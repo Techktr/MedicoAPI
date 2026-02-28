@@ -1,5 +1,6 @@
 ﻿using MedicoAPI.Data;
 using MedicoAPI.Models;
+using MedicoAPI.Services.DTOs;
 
 namespace MedicoAPI.Repositories;
 
@@ -29,7 +30,7 @@ public class PatientRepository : IPatientRepository
         return patient;
     }
 
-    public Patient? UpdatePatient(Patient patient)
+    public Patient? UpdatePatient(PatientUpdateDto patient)
     {
         Patient? patientToUpdate = _context.Patients.Find(patient.Id);
         if (patientToUpdate == null)
@@ -37,14 +38,12 @@ public class PatientRepository : IPatientRepository
             throw new Exception("Patient does not exist");
         }
 
-        patientToUpdate.FirstName = patient.FirstName;
-        patientToUpdate.LastName = patient.LastName;
         patientToUpdate.Address = patient.Address;
         patientToUpdate.Age = patient.Age;
         patientToUpdate.SportName = patient.SportName;
         _context.Patients.Update(patientToUpdate);
         _context.SaveChanges();
-        return patient;
+        return patientToUpdate;
     }
 
     public void DeletePatient(int id)
