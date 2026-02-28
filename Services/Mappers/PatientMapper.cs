@@ -61,9 +61,4 @@ public class PatientMapper
         };
     }
 
-    public Patient DeleteDtoToEntity(PatientDeleteDto dto)
-    {
-        return new Patient(){Id = dto.Id};
-    }
-
 }

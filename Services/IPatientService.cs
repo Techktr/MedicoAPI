@@ -8,5 +8,5 @@ public interface IPatientService
     PatientResponseDto GetPatientById(int id);
     PatientResponseDto CreatePatient(PatientCreateDto patientCreateDto);
     PatientResponseDto UpdatePatient(PatientUpdateDto patientUpdateDto);
-    void DeletePatient(PatientDeleteDto patientDeleteDto);
+    void DeletePatient(int id);
 }

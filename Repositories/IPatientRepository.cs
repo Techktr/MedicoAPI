@@ -8,5 +8,5 @@ public interface IPatientRepository
     Patient? GetPatientById(int id);
     Patient CreatePatient(Patient patient);
     Patient? UpdatePatient(Patient patient);
-    void DeletePatient(Patient patient);
+    void DeletePatient(int id);
 }

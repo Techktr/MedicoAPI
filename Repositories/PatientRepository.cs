@@ -47,9 +47,9 @@ public class PatientRepository : IPatientRepository
         return patient;
     }
 
-    public void DeletePatient(Patient patient)
+    public void DeletePatient(int id)
     {
-        Patient? patientToDelete = _context.Patients.Find(patient.Id);
+        Patient? patientToDelete = _context.Patients.Find(id);
         if (patientToDelete == null)
         {
             throw new Exception("Patient does not exist");

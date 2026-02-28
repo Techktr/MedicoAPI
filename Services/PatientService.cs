@@ -54,8 +54,8 @@ public class PatientService: IPatientService
         return patientResponse ?? throw new Exception("Patient not found");
     }
 
-    public void DeletePatient(PatientDeleteDto patientDeleteDto)
+    public void DeletePatient(int id)
     {
-        _patientRepository.DeletePatient(_patientMapper.DeleteDtoToEntity(patientDeleteDto));
+        _patientRepository.DeletePatient(id);
     }
 }
