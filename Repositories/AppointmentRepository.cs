@@ -31,7 +31,9 @@ public class AppointmentRepository: IAppointmentRepository
     {
         _context.Appointments.Add(appointment);
         _context.SaveChanges();
-        return appointment;
+        Appointment? created = GetAppointmentById(appointment.Id);
+        if (created == null) throw new Exception("Appointment not created");
+        return created;
     }
 
     public Appointment? UpdateAppointment(Appointment appointment)
@@ -47,7 +49,9 @@ public class AppointmentRepository: IAppointmentRepository
         appointmentToUpdate.PractitionerId = appointment.PractitionerId;
         _context.Appointments.Update(appointmentToUpdate);
         _context.SaveChanges();
-        return appointmentToUpdate;
+        Appointment? updated = GetAppointmentById(appointment.Id);
+        if (updated == null) throw new Exception("Appointment not updated");
+        return updated;
     }
 
     public void DeleteAppointment(int id)
