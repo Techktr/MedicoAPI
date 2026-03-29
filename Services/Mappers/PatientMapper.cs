@@ -25,19 +25,6 @@ public class PatientMapper
         return patients.Select(patient => EntityToResponseDto(patient)).ToList();
     }
 
-    public Patient ResponseDtoToEntity(PatientResponseDto dto)
-    {
-        return new Patient()
-        {
-            Id = dto.Id,
-            FirstName = dto.FirstName,
-            LastName = dto.LastName,
-            Age = dto.Age,
-            Address = dto.Address,
-            SportName = dto.SportName
-        };
-    }
-
     public Patient CreateDtoToEntity(PatientCreateDto dto)
     {
         return new Patient()
