@@ -20,6 +20,9 @@ builder.Services.AddScoped<PatientMapper>();
 builder.Services.AddScoped<IPractitionerRepository, PractitionerRepository>();
 builder.Services.AddScoped<IPractitionerService, PractitionerService>();
 builder.Services.AddScoped<PractitionerMapper>();
+builder.Services.AddScoped<IAppointmentRepository, AppointmentRepository>();
+builder.Services.AddScoped<IAppointmentService, AppointmentService>();
+builder.Services.AddScoped<AppointmentMapper>();
 builder.Services.AddCors(corsPolicy =>
 {
     corsPolicy.AddPolicy("AllowAngular",
